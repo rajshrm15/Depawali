@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Diwali Subhkamna!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to bottom, #ffecd2 0%, #fcb69f 100%);
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow: hidden; /* Firework effects can be outside viewport */
+            position: relative;
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            max-width: 90%; /* Max width on larger screens */
+            width: 500px;
+            position: relative;
+            z-index: 10;
+            display: flex; /* Flexbox for better content distribution */
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 15px; /* Spacing between elements */
+        }
+
+        .laxmi-image {
+            width: 200px; /* GIF ka size badhaya gaya */
+            height: auto;
+            margin-bottom: 5px; /* Reduced margin due to gap */
+            animation: bounce 2s infinite ease-in-out;
+            border-radius: 50%;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3.5em;
+            color: #e44d26;
+            margin-bottom: 5px; /* Reduced margin due to gap */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 2s ease-out;
+        }
+
+        p.subkammna {
+            font-size: 1.2em;
+            margin-bottom: 15px; /* Reduced margin due to gap */
+            color: #555;
+            animation: fadeIn 2.5s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .input-group {
+            width: 100%; /* Ensure input group takes full width */
+            margin-bottom: 10px; /* Reduced margin due to gap */
+        }
+
+        label {
+            display: block;
+            font-size: 1.1em;
+            margin-bottom: 8px;
+            color: #666;
+        }
+
+        input[type="text"] {
+            width: calc(100% - 24px); /* Account for padding and border */
+            padding: 12px;
+            border: 2px solid #ff7f50;
+            border-radius: 8px;
+            font-size: 1em;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        input[type="text"]:focus {
+            border-color: #e44d26;
+            box-shadow: 0 0 10px rgba(228, 77, 38, 0.3);
+        }
+
+        .share-buttons {
+            display: flex; /* Use flexbox for share buttons */
+            flex-wrap: wrap; /* Allow buttons to wrap on smaller screens */
+            justify-content: center;
+            gap: 15px; /* Spacing between buttons */
+            width: 100%;
+        }
+
+        .share-buttons button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            flex-grow: 1; /* Allow buttons to grow and take available space */
+            max-width: 200px; /* Limit max width for individual buttons */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .share-buttons button:hover {
+            background-color: #45a049;
+            transform: translateY(-3px);
+        }
+
+        .share-buttons button:active {
+            transform: translateY(0);
+        }
+
+        .share-buttons button.whatsapp {
+            background-color: #25D366;
+        }
+
+        .share-buttons button.whatsapp:hover {
+            background-color: #1DA851;
+        }
+
+        .share-buttons button.other {
+            background-color: #007bff;
+        }
+
+        .share-buttons button.other:hover {
+            background-color: #0056b3;
+        }
+
+        /* Firecracker Effect */
+        .firework {
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            background-color: #FFD700;
+            border-radius: 50%;
+            opacity: 0;
+            animation: firework 2s ease-out forwards;
+            pointer-events: none; /* Ensure fireworks don't interfere with clicks */
+            z-index: 1; /* Below the container */
+        }
+
+        @keyframes firework {
+            0% { transform: translate(0, 0) scale(1); opacity: 1; }
+            20% { opacity: 1; }
+            100% { transform: translate(var(--x), var(--y)) scale(0); opacity: 0; }
+        }
+
+        /* --- Media Queries for Mobile Responsiveness --- */
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+                gap: 10px; /* Adjust gap for smaller screens */
+            }
+
+            .laxmi-image {
+                width: 150px; /* Smaller image on tablet/mid-size mobile */
+            }
+
+            h1 {
+                font-size: 2.8em; /* Smaller heading on mobile */
+            }
+
+            p.subkammna {
+                font-size: 1.1em; /* Smaller text on mobile */
+            }
+
+            label {
+                font-size: 1em;
+            }
+
+            input[type="text"] {
+                padding: 10px;
+                font-size: 0.9em;
+            }
+
+            .share-buttons {
+                flex-direction: column; /* Stack buttons vertically on small screens */
+                gap: 10px;
+            }
+
+            .share-buttons button {
+                width: 100%; /* Full width buttons on mobile */
+                max-width: unset; /* Remove max-width constraint */
+                font-size: 1em;
+                padding: 10px 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2.2em; /* Even smaller heading on very small screens */
+            }
+
+            p.subkammna {
+                font-size: 0.9em;
+            }
+
+            .laxmi-image {
+                width: 120px; /* Even smaller GIF on very small screens */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="luxmi.gif" alt="Goddess Lakshmi" class="laxmi-image">
+        <h1>Happy Diwali</h1>
+        <p class="subkammna">आपको और आपके परिवार को दिवाली की हार्दिक शुभकामनाएं!</p>
+
+        <div class="input-group">
+            <label for="userName">अपना नाम यहाँ लिखें:</label>
+            <input type="text" id="userName" placeholder="यहाँ अपना नाम टाइप करें">
+        </div>
+
+        <div class="share-buttons">
+            <button class="whatsapp" onclick="shareOnWhatsApp()">WhatsApp पर शेयर करें</button>
+            <button class="other" onclick="shareOnOtherPlatforms()">अन्य प्लेटफार्म पर शेयर करें</button>
+        </div>
+    </div>
+
+    <script>
+        function generateShareMessage() {
+            const userName = document.getElementById('userName').value.trim();
+            let message = "";
+
+            if (userName) {
+                message = `"${userName}" की ओर से आपको और आपके परिवार को दीपावली की हार्दिक शुभकामनाएँ! आपका जीवन सुख, समृद्धि और खुशियों से भरा रहे। ✨🪔`;
+            } else {
+                message = `आपको और आपके परिवार को दीपावली की हार्दिक शुभकामनाएँ! आपका जीवन सुख, समृद्धि और खुशियों से भरा रहे। ✨🪔`;
+            }
+
+            const pageUrl = window.location.href;
+            return encodeURIComponent(message + `\n\nइस सुंदर दिवाली ग्रीटिंग को देखने के लिए क्लिक करें: ${pageUrl}`);
+        }
+
+        function shareOnWhatsApp() {
+            const message = generateShareMessage();
+            const whatsappUrl = `https://api.whatsapp.com/send?text=${message}`;
+            window.open(whatsappUrl, '_blank');
+        }
+
+        function shareOnOtherPlatforms() {
+            const message = generateShareMessage();
+            const shareData = {
+                title: 'शुभ दीपावली!',
+                text: decodeURIComponent(message), // decodeURIComponent for display in native share dialog
+                url: window.location.href,
+            };
+
+            if (navigator.share) {
+                navigator.share(shareData)
+                    .then(() => console.log('संदेश सफलतापूर्वक शेयर किया गया'))
+                    .catch((error) => console.error('शेयर करने में त्रुटि:', error));
+            } else {
+                alert("आपका ब्राउज़र शेयर सुविधा का समर्थन नहीं करता है। आप संदेश और लिंक मैन्युअल रूप से कॉपी कर सकते हैं।");
+                prompt("यह संदेश कॉपी करें:", decodeURIComponent(message));
+            }
+        }
+
+        // Firecracker effect
+        function createFirework() {
+            const firework = document.createElement('div');
+            firework.className = 'firework';
+            const x = (Math.random() - 0.5) * window.innerWidth * 1.5;
+            const y = (Math.random() - 0.5) * window.innerHeight * 1.5;
+            firework.style.setProperty('--x', `${x}px`);
+            firework.style.setProperty('--y', `${y}px`);
+            firework.style.left = `${Math.random() * 100}vw`;
+            firework.style.top = `${Math.random() * 100}vh`;
+            document.body.appendChild(firework);
+
+            firework.addEventListener('animationend', () => {
+                firework.remove();
+            });
+        }
+
+        setInterval(createFirework, 300);
+    </script>
+</body>
+</html>
